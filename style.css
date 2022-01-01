@@ -1,4 +1,44 @@
 *{
     margin: 0;
     padding: 0;
+    background-color: rgb(202, 216, 243);
+}
+
+body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+h1 {
+    margin-bottom: 8rem;
+}
+.game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-around;
+    border: 2px solid hotpink;
+    
+    height: 30rem;
+    width: 30rem;
+}
+
+.grid {
+    display: flex;
+    align-items: center;
+    height: 9.5rem;
+    width: 9.833rem;
+    border: 2px solid yellow;
+    font-size: 7rem;
+    text-align: center;
+    
+}
+
+.row {
+    width: 29.5rem;
+    display: flex;
+    align-self: center;
 }
