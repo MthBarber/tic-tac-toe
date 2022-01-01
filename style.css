@@ -28,12 +28,14 @@ h1 {
 
 .grid {
     display: flex;
+    justify-content: center;
     align-items: center;
     height: 9.5rem;
     width: 9.833rem;
     border: 2px solid yellow;
     font-size: 7rem;
-    text-align: center;
+   
+    
     
 }
 
