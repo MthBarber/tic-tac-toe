@@ -5,7 +5,7 @@ const gameboard = {
 
 const player1 = {
     addX(){
-        
+        return
     }
 }
 
@@ -29,6 +29,7 @@ const startButton = document.getElementById('start');
 
 startButton.addEventListener("click", (e) =>{
     player1.addX();
+    console.log("Your pressed start!");
 })
 
 //Get grid from DOM
@@ -40,12 +41,12 @@ for (let i = 0; i < gridSquares.length; i++){
     gridSquares[i].addEventListener("click", (e) => {
         if (gameboard.turnNumber === 9){
             alert("Its A Draw!");
-        }else if (gameboard.turnNumber % 2 === 1){
+        }else if (gameboard.turnNumber % 2 === 1 && (gridSquares[i].innerHTML != 'X') || (gridSquares[i].innerHTML != '0')){
             //add x to the board            
             gridSquares[i].innerHTML = 'X';
             gridSquares[i].value = 'X';
             gameboard.turnNumber++;
-        }else if (gameboard.turnNumber % 2 === 0){
+        }else if (gameboard.turnNumber % 2 === 0 && (gridSquares[i].innerHTML != 'X') || (gridSquares[i].innerHTML != '0')){
             //add 0 to the board
             gridSquares[i].innerHTML = '0';
             gridSquares[i].value = '0';
