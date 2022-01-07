@@ -1,17 +1,17 @@
 const gameboard = {
     grid : [1,2,3,4,5,6,7,8,9],
-    turnNumber : 1,
+    turnNumber : 0,
 };
 
 const player1 = {
     addX(){
-        return 
+        
     }
 }
 
 const player2 = {
     add0(){
-        return
+        return 
     }
 }
 //use a turnCounter and increment by 1, this will control what is put in next, either or 0 or X, then increment the turn number, max turns = 9
@@ -28,7 +28,7 @@ const turnControl = (e)=> {
 const startButton = document.getElementById('start');
 
 startButton.addEventListener("click", (e) =>{
-    
+    player1.addX();
 })
 
 //Get grid from DOM
@@ -38,7 +38,20 @@ let gridSquares = document.getElementsByClassName('grid');
 
 for (let i = 0; i < gridSquares.length; i++){
     gridSquares[i].addEventListener("click", (e) => {
-       return alert("You clicked gridsquare " + i);
+        if (gameboard.turnNumber === 9){
+            alert("Its A Draw!");
+        }else if (gameboard.turnNumber % 2 === 1){
+            //add x to the board            
+            gridSquares[i].innerHTML = 'X';
+            gridSquares[i].value = 'X';
+            gameboard.turnNumber++;
+        }else if (gameboard.turnNumber % 2 === 0){
+            //add 0 to the board
+            gridSquares[i].innerHTML = '0';
+            gridSquares[i].value = '0';
+            gameboard.turnNumber++;
+            
+        }
     })
 }
 
