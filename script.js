@@ -1,6 +1,7 @@
 const gameboard = {
     grid : [1,2,3,4,5,6,7,8,9],
     turnNumber : 1,
+    gameWon : false,
 };
 
 const player1 = {
@@ -36,42 +37,60 @@ startButton.addEventListener("click", (e) =>{
 //Code to check for a winner
 const checkWinnerX = (e) => {
     if (gameboard.grid[0] && gameboard.grid[1] && gameboard.grid[2] === 'X'){
-        console.log("WE HAVE A WINNER! x")
+        console.log("WE HAVE A WINNER! x");
+        return gameboard.gameWon = true;
     }else if (gameboard.grid[3] && gameboard.grid[4] && gameboard.grid[5] === 'X'){
-        console.log("WE HAVE A WINNER! x")
+        console.log("WE HAVE A WINNER! x");
+        return gameboard.gameWon = true;
     }else if (gameboard.grid[6] && gameboard.grid[7] && gameboard.grid[8] === 'X'){
-        console.log("WE HAVE A WINNER! x")
+        console.log("WE HAVE A WINNER! x");
+        return gameboard.gameWon = true;
     }else if (gameboard.grid[0] && gameboard.grid[3] && gameboard.grid[6] === 'X'){
-        console.log("WE HAVE A WINNER! x")
+        console.log("WE HAVE A WINNER! x");
+        return gameboard.gameWon = true;
     }else if (gameboard.grid[1] && gameboard.grid[4] && gameboard.grid[7] === 'X'){
-        console.log("WE HAVE A WINNER! x")
+        console.log("WE HAVE A WINNER! x");
+        return gameboard.gameWon = true;
     }else if (gameboard.grid[2] && gameboard.grid[5] && gameboard.grid[8] === 'X'){
-        console.log("WE HAVE A WINNER! x")
+        console.log("WE HAVE A WINNER! x");
+        return gameboard.gameWon = true;
     }else if (gameboard.grid[0] && gameboard.grid[4] && gameboard.grid[8] === 'X'){
-        console.log("WE HAVE A WINNER! x")
+        console.log("WE HAVE A WINNER! x");
+        return gameboard.gameWon = true;
     }else if (gameboard.grid[2] && gameboard.grid[4] && gameboard.grid[6] === 'X'){
-        
-    }
+        console.log("we have a winner x");
+        return gameboard.gameWon = true;
+    }else
+    return false;
 }
 
 const checkWinner0 = (e) => {
     if (gameboard.grid[0] && gameboard.grid[1] && gameboard.grid[2] === '0'){
-        console.log("WE HAVE A WINNER! 0")
+        console.log("WE HAVE A WINNER! 0");
+        return gameboard.gameWon = true;
     }else if (gameboard.grid[3] && gameboard.grid[4] && gameboard.grid[5] === '0'){
-        console.log("WE HAVE A WINNER! 0")
+        console.log("WE HAVE A WINNER! 0");
+        return gameboard.gameWon = true;
     }else if (gameboard.grid[6] && gameboard.grid[7] && gameboard.grid[8] === '0'){
-        console.log("WE HAVE A WINNER! 0")
+        console.log("WE HAVE A WINNER! 0");
+        return gameboard.gameWon = true;
     }else if (gameboard.grid[0] && gameboard.grid[3] && gameboard.grid[6] === '0'){
-        console.log("WE HAVE A WINNER! 0")
+        console.log("WE HAVE A WINNER! 0");
+        return gameboard.gameWon = true;
     }else if (gameboard.grid[1] && gameboard.grid[4] && gameboard.grid[7] === '0'){
-        console.log("WE HAVE A WINNER! 0")
+        console.log("WE HAVE A WINNER! 0");
+        return gameboard.gameWon = true;
     }else if (gameboard.grid[2] && gameboard.grid[5] && gameboard.grid[8] === '0'){
-        console.log("WE HAVE A WINNER! 0")
+        console.log("WE HAVE A WINNER! 0");
+        return gameboard.gameWon = true;
     }else if (gameboard.grid[0] && gameboard.grid[4] && gameboard.grid[8] === '0'){
-        console.log("WE HAVE A WINNER! 0")
+        console.log("WE HAVE A WINNER! 0");
+        return gameboard.gameWon = true;
     }else if (gameboard.grid[2] && gameboard.grid[4] && gameboard.grid[6] === '0'){
-        
-    }
+        console.log("we have a winner 0");
+        return gameboard.gameWon = true;
+    }else
+        return false
 }
 
 //Get grid from DOM
@@ -87,20 +106,20 @@ const turnControl = (e)=> {
                     alert("Its A Draw!");
                 }else if ((gameboard.turnNumber % 2 === 1) && ((gridSquares[i].innerHTML != 'X') && (gridSquares[i].innerHTML != '0'))){
                     //add x to the board            
-                    gridSquares[i].innerHTML = 'X';
-                    gridSquares[i].value = 'X';
+                    gridSquares[i].innerHTML = 'X';                    
                     console.log("first else if");
                     gameboard.grid[i] = 'X';
                     gameboard.turnNumber++;
                     checkWinnerX();
+                    
                 }else if ((gameboard.turnNumber % 2 === 0) && ((gridSquares[i].innerHTML != 'X') && (gridSquares[i].innerHTML != '0'))){
                     //add 0 to the board
-                    gridSquares[i].innerHTML = '0';
-                    gridSquares[i].value = '0';
+                    gridSquares[i].innerHTML = '0';                    
                     console.log("second else if");
                     gameboard.grid[i] = '0';
                     gameboard.turnNumber++;
                     checkWinner0();
+                      
                 }else {
                     gameboard.turnNumber = gameboard.turnNumber;
                     console.log(gameboard.turnNumber);
