@@ -50,12 +50,14 @@ const turnControl = (e)=> {
                     gridSquares[i].innerHTML = 'X';
                     gridSquares[i].value = 'X';
                     console.log("first else if");
+                    gameboard.grid[i] = 'X';
                     gameboard.turnNumber++;
                 }else if ((gameboard.turnNumber % 2 === 0) && ((gridSquares[i].innerHTML != 'X') && (gridSquares[i].innerHTML != '0'))){
                     //add 0 to the board
                     gridSquares[i].innerHTML = '0';
                     gridSquares[i].value = '0';
                     console.log("second else if");
+                    gameboard.grid[i] = '0';
                     gameboard.turnNumber++;
                     
                 }else {
