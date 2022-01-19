@@ -2,6 +2,7 @@ const gameboard = {
     grid : [1,2,3,4,5,6,7,8,9],
     turnNumber : 1,
     gameWon : false,
+    winner : player,
 };
 
 const player1 = {
@@ -15,15 +16,7 @@ const player2 = {
         return 
     }
 }
-//use a turnCounter and increment by 1, this will control what is put in next, either or 0 or X, then increment the turn number, max turns = 9
 
-//const turnControl = (e)=> {
-    //if (gameboard.turnNumber % 2 === 1){
-        //add x to the board
-    //}else {
-        //add 0 to the board
-    //}
-//}
 
 //Get start button
 const startButton = document.getElementById('start');
@@ -133,4 +126,12 @@ const turnControl = (e)=> {
         }
 }
 
-    
+//Create a function that resets the game and grid when a winner is found put function inside checkWinner Function  
+
+function gameOver(){
+    if (gameboard.gameWon === true){
+
+    }else if (gameboard.gameWon === false){
+
+    }
+}
