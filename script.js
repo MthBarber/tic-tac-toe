@@ -132,7 +132,8 @@ const turnControl = (e)=> {
 function gameOver(){
     if (gameboard.gameWon === true){
         alert("Game Won");
-        clearBoard();
+        resetGame();
+        
     }else if (gameboard.gameWon === false){
 
     }
@@ -140,9 +141,10 @@ function gameOver(){
 
 //create a function to reset board
 
-function clearBoard(){
+function resetGame(){
     gameboard.grid = [1,2,3,4,5,6,7,8,9];
     gameboard.turnNumber = 1;
+    gameboard.gameWon = false;
     for (let i = 0; i < gridSquares.length; i++){
         gridSquares[i].innerHTML = "";
         
