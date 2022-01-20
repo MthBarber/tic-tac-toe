@@ -2,7 +2,7 @@ const gameboard = {
     grid : [1,2,3,4,5,6,7,8,9],
     turnNumber : 1,
     gameWon : false,
-    winner : player,
+    winner : "player",
 };
 
 const player1 = {
@@ -107,17 +107,18 @@ const turnControl = (e)=> {
                     console.log(gridSquares[i]);
                     console.table(gameboard.grid);
                     checkWinnerX();
+                    gameOver();
                     //need to add switch statement to break
                 }else if ((gameboard.turnNumber % 2 === 0) && ((gridSquares[i].innerHTML != 'X') && (gridSquares[i].innerHTML != '0'))){
                     //add 0 to the board
                     gridSquares[i].innerHTML = '0';                    
                     console.log("second else if");
                     gameboard.grid[i] = '0';
-                    gameboard.turnNumber++;
+                    gameboard.turnNumber++;                            //Need to break out with Return when winner is found
                     console.log(gridSquares[i]);
                     console.table(gameboard.grid);
                     checkWinner0();
-                      
+                    gameOver(); 
                 }else {
                     gameboard.turnNumber = gameboard.turnNumber;
                     console.log(gameboard.turnNumber);
@@ -130,8 +131,22 @@ const turnControl = (e)=> {
 
 function gameOver(){
     if (gameboard.gameWon === true){
-
+        alert("Game Won");
+        clearBoard();
     }else if (gameboard.gameWon === false){
+
+    }
+}
+
+//create a function to reset board
+
+function clearBoard(){
+    gameboard.grid = [1,2,3,4,5,6,7,8,9];
+    gameboard.turnNumber = 1;
+    for (let i = 0; i < gridSquares.length; i++){
+        gridSquares[i].innerHTML = "";
+        
+
 
     }
 }
