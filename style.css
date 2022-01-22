@@ -15,6 +15,26 @@ body {
 h1 {
     margin-bottom: 8rem;
 }
+
+.playerNames {
+    width: 100vw;
+    height: 8vh;
+    display:flex;
+    justify-content: space-evenly;
+}
+
+#playerOne {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#playerTwo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
 .game-container {
     display: flex;
     flex-direction: column;

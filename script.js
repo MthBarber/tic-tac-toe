@@ -15,11 +15,22 @@ const player2 = {
     player2Name: "",
 }
 
-//factory function to add player name
+// function to add player name to UI
+const player1Div = document.getElementById('playerOne');
+const player2Div = document.getElementById('playerTwo');
 
+const setPlayerName = (name) =>{
+    if (name == player1.player1Name){
+        player1Div.innerHTML = name;
+    }else if (name == player2.player2Name) {
+        player2Div.innerHTML = name;
+    }
+}
+
+//factory function to add player name
 const PlayerName = (name) => {
     const getName = prompt("Whats your name player?");
-    return {getName};
+    return getName;
 }
 
 //Get start button
@@ -29,6 +40,8 @@ startButton.addEventListener("click", (e) =>{
     console.log("You pressed start!");
     player1.player1Name = PlayerName();
     player2.player1Name = PlayerName();
+    setPlayerName(player1.player1Name);
+    setPlayerName(player2.player2Name);
     turnControl();
     
 })
