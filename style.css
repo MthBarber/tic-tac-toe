@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    background-color: rgb(202, 216, 243);
+    background-color: rgb(255, 255, 255);
 }
 
 body {
@@ -13,7 +13,7 @@ body {
 }
 
 h1 {
-    margin-bottom: 8rem;
+    margin-bottom: 4rem;
 }
 
 .playerNames {
@@ -21,6 +21,7 @@ h1 {
     height: 8vh;
     display:flex;
     justify-content: space-evenly;
+    margin-bottom: 2rem;
 }
 
 #playerOne {
@@ -35,24 +36,33 @@ h1 {
     align-items: center;
     
 }
+
+#start {
+    margin-bottom: 1.1rem;
+    background-color: green;
+    border:2px solid black;
+    height: 2.8rem;
+    width: 7rem;
+    color: white;
+}
 .game-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: space-around;
-    border: 2px solid hotpink;
-    
-    height: 30rem;
-    width: 30rem;
+    border: 5px solid rgb(0, 0, 0); 
+    background-color: gray;   
+    min-height: 24%;
+    min-width: 35%;
 }
 
 .grid {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 9.5rem;
-    width: 9.833rem;
-    border: 2px solid yellow;
+    min-height: 33.33%;
+    min-width: 33.33%;
+    background-color: gray;   
     font-size: 7rem;
    
     
@@ -60,7 +70,19 @@ h1 {
 }
 
 .row {
-    width: 29.5rem;
+    min-width: 29.5rem;
     display: flex;
     align-self: center;
+}
+
+#one, #two, #three, #four, #five, #six {
+    border-bottom: 3px solid black;
+}
+
+#two, #three,#five, #six, #eight, #nine {
+    border-left: 3px solid black;
+}
+
+#one:hover, #two:hover, #three:hover, #four:hover, #five:hover, #six:hover, #seven:hover, #eight:hover, #nine:hover {
+    background-color: whitesmoke;
 }

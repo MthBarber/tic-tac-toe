@@ -165,7 +165,7 @@ function resetGame(){
     gameboard.turnNumber = 1;
     gameboard.gameWon = false;
     for (let i = 0; i < gridSquares.length; i++){
-        gridSquares[i].innerHTML = "";
+        gridSquares[i].innerHTML = "0";
         
 
 
