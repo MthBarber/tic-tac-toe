@@ -21,9 +21,9 @@ const player2Div = document.getElementById('playerTwo');
 
 const setPlayerName = (name) =>{
     if (name == player1.player1Name){
-        player1Div.innerHTML = name;
+        return player1Div.innerHTML = name;
     }else if (name == player2.player2Name) {
-        player2Div.innerHTML = name;
+       return player2Div.innerHTML = name;
     }
 }
 
@@ -39,7 +39,7 @@ const startButton = document.getElementById('start');
 startButton.addEventListener("click", (e) =>{
     console.log("You pressed start!");
     player1.player1Name = PlayerName();
-    player2.player1Name = PlayerName();
+    player2.player2Name = PlayerName();
     setPlayerName(player1.player1Name);
     setPlayerName(player2.player2Name);
     turnControl();
