@@ -5,24 +5,30 @@ const gameboard = {
     winner : "player",
 };
 
-const player1 = {
-    addX(){
-        return
-    }
+const player1 = {    
+    player1Name: "",
+    
+    
 }
 
 const player2 = {
-    add0(){
-        return 
-    }
+    player2Name: "",
 }
 
+//factory function to add player name
+
+const PlayerName = (name) => {
+    const getName = prompt("Whats your name player?");
+    return {getName};
+}
 
 //Get start button
 const startButton = document.getElementById('start');
 
 startButton.addEventListener("click", (e) =>{
     console.log("You pressed start!");
+    player1.player1Name = PlayerName();
+    player2.player1Name = PlayerName();
     turnControl();
     
 })
