@@ -12,8 +12,8 @@ const createPlayer = (name) => {
 }
 
 //player object creation
-const player1 = createPlayer("");
-const player2 = createPlayer("");
+const player1 = createPlayer("Player 1");
+const player2 = createPlayer("Player 2");
 
 // function to add player name to UI
 

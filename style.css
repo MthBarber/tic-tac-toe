@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    background-color: rgb(255, 255, 255);
+    background-color: #5FB49C;
 }
 
 body {
@@ -14,6 +14,8 @@ body {
 
 h1 {
     margin-bottom: 4rem;
+    font-size: 4rem;
+    font-family: 'Caveat', cursive;
 }
 
 .playerNames {
@@ -22,6 +24,8 @@ h1 {
     display:flex;
     justify-content: space-evenly;
     margin-bottom: 2rem;
+    font-size:2rem;
+    font-family: 'Dongle', sans-serif;
 }
 
 #playerOne {
@@ -33,6 +37,19 @@ h1 {
 }
 #playerOne p, input, button {
     margin-bottom: 0.5rem;
+}
+
+input {
+    background-color:white;
+}
+
+#submitOne, #submitTwo {
+    min-width: 4rem;
+    min-height: 2rem;
+    background-color: #663399;
+    color: white;
+    border:none;
+    border-radius: 8%;
 }
 
 #playerTwo {
@@ -49,12 +66,18 @@ h1 {
 
 #start {
     margin-bottom: 1.1rem;
-    background-color: green;
+    background-color: #ECD444;
     border:2px solid black;
     height: 2.8rem;
     width: 7rem;
-    color: white;
+    color: #000;
 }
+
+button {
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 700;
+}
+
 .game-container {
     display: flex;
     flex-direction: column;
@@ -64,6 +87,7 @@ h1 {
     background-color: gray;   
     min-height: 30rem;
     min-width: 30rem;
+    margin-top: 1rem;
 }
 
 .grid {
@@ -72,7 +96,7 @@ h1 {
     align-items: center;
     min-height: 10rem;
     min-width: 10rem;
-    background-color: gray;   
+    background-color: #F06543;   
     font-size: 7rem;
    
     
@@ -86,13 +110,13 @@ h1 {
 }
 
 #one, #two, #three, #four, #five, #six {
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid #000;
 }
 
 #two, #three,#five, #six, #eight, #nine {
-    border-left: 3px solid black;
+    border-left: 3px solid #000;
 }
 
 #one:hover, #two:hover, #three:hover, #four:hover, #five:hover, #six:hover, #seven:hover, #eight:hover, #nine:hover {
-    background-color: whitesmoke;
+    background-color: #663399;
 }
