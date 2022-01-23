@@ -1,31 +1,17 @@
-/*const gameboard = {
-    grid : [1,2,3,4,5,6,7,8,9],
-    turnNumber : 1,
-    gameWon : false,
-    winner : "player",
-};*/
-
 //Function to make gameboard
 const gameboardCreator = (grid, turnNumber, gameWon, winner) => {
     return {grid, turnNumber, gameWon, winner};
 }
-
+//gameboard object created
 const gameboard = gameboardCreator([1,2,3,4,5,6,7,8,9],1,false, "player");
 
-/*const player1 = {    //removed to make players with factory function below
-    player1Name: "",
-    
-    
-}
-
-const player2 = {
-    player2Name: "",
-}*/
+//Factory function to create players
 
 const createPlayer = (name) => {
     return {name};
 }
 
+//player object creation
 const player1 = createPlayer("");
 const player2 = createPlayer("");
 
