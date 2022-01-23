@@ -26,15 +26,25 @@ h1 {
 
 #playerOne {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     
 }
+#playerOne p, input, button {
+    margin-bottom: 0.5rem;
+}
+
 #playerTwo {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     
+}
+
+#playerTwo p, input, button {
+    margin-bottom: 0.5rem;
 }
 
 #start {
