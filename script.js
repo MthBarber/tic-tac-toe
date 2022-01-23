@@ -1,11 +1,18 @@
-const gameboard = {
+/*const gameboard = {
     grid : [1,2,3,4,5,6,7,8,9],
     turnNumber : 1,
     gameWon : false,
     winner : "player",
-};
+};*/
 
-const player1 = {    
+//Function to make gameboard
+const gameboardCreator = (grid, turnNumber, gameWon, winner) => {
+    return {grid, turnNumber, gameWon, winner};
+}
+
+const gameboard = gameboardCreator([1,2,3,4,5,6,7,8,9],1,false, "player");
+
+/*const player1 = {    //removed to make players with factory function below
     player1Name: "",
     
     
@@ -13,7 +20,14 @@ const player1 = {
 
 const player2 = {
     player2Name: "",
+}*/
+
+const createPlayer = (name) => {
+    return {name};
 }
+
+const player1 = createPlayer("");
+const player2 = createPlayer("");
 
 // function to add player name to UI
 
@@ -21,16 +35,16 @@ const player2 = {
 const setPlayerName = (name) =>{
     const player1Div = document.getElementById('playerOne');
     const player2Div = document.getElementById('playerTwo');
-    if (name == player1.player1Name){
+    if (name == player1.name){
         return player1Div.innerHTML = name;
-    }else if (name == player2.player2Name) {
+    }else if (name == player2.name) {
        return player2Div.innerHTML = name;
     }
 }
 
 //factory function to add player name
 const PlayerName = (name) => {
-    const getName = prompt("Whats your name player?");
+    const getName = prompt("Whats your name player?"); //Prompt function to add name, not currently used
     return getName;
 }
 
@@ -42,7 +56,7 @@ submitButtonOne.addEventListener("click", (e) => {
     const nameInputOne = document.getElementById("nameOne");
     const nameOneField = document.getElementById("nameOneHere");
     nameOneField.innerHTML = nameInputOne.value;
-    player1.player1Name = nameInputOne.value;
+    player1.name = nameInputOne.value;
     nameInputOne.value = "";
 })
 
@@ -56,7 +70,7 @@ submitButtonTwo.addEventListener("click", (e) => {
     const nameInputTwo = document.getElementById("nameTwo");
     const nameTwoField = document.getElementById("nameTwoHere");
     nameTwoField.innerHTML = nameInputTwo.value;
-    player2.player2Name = nameInputTwo.value;
+    player2.name = nameInputTwo.value;
     nameInputTwo.value = "";
 })
 
@@ -64,11 +78,10 @@ submitButtonTwo.addEventListener("click", (e) => {
 //Get start button
 const startButton = document.getElementById('start');
 
-startButton.addEventListener("click", (e) =>{
-    console.log("You pressed start!");
+startButton.addEventListener("click", (e) =>{    
     /*player1.player1Name = PlayerName();
     player2.player2Name = PlayerName();
-    setPlayerName(player1.player1Name);
+    setPlayerName(player1.player1Name); //Left in place so names can be added using prompts if wanted
     setPlayerName(player2.player2Name);*/
     turnControl();
     
@@ -78,35 +91,35 @@ startButton.addEventListener("click", (e) =>{
 const checkWinnerX = (e) => {
     if (gameboard.grid[0] + gameboard.grid[1] + gameboard.grid[2] === 'XXX'){
         
-        gameboard.winner = player1.player1Name;
+        gameboard.winner = player1.name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[3] + gameboard.grid[4] + gameboard.grid[5] === 'XXX'){
         
-        gameboard.winner = player1.player1Name;
+        gameboard.winner = player1.name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[6] + gameboard.grid[7] + gameboard.grid[8] === 'XXX'){
         
-        gameboard.winner = player1.player1Name;
+        gameboard.winner = player1.name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[0] + gameboard.grid[3] + gameboard.grid[6] === 'XXX'){
         
-        gameboard.winner = player1.player1Name;
+        gameboard.winner = player1.name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[1] + gameboard.grid[4] + gameboard.grid[7] === 'XXX'){
         
-        gameboard.winner = player1.player1Name;
+        gameboard.winner = player1.name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[2] + gameboard.grid[5] + gameboard.grid[8] === 'XXX'){
         
-        gameboard.winner = player1.player1Name;
+        gameboard.winner = player1.name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[0] + gameboard.grid[4] + gameboard.grid[8] === 'XXX'){
         
-        gameboard.winner = player1.player1Name;
+        gameboard.winner = player1.name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[2] + gameboard.grid[4] + gameboard.grid[6] === 'XXX'){
         
-        gameboard.winner = player1.player1Name;
+        gameboard.winner = player1.name;
         return gameboard.gameWon = true;
     }else
         return false;
@@ -115,35 +128,35 @@ const checkWinnerX = (e) => {
 const checkWinner0 = (e) => {
     if (gameboard.grid[0] + gameboard.grid[1] + gameboard.grid[2] === '000'){
         
-        gameboard.winner = player2.player2Name;
+        gameboard.winner = player2.name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[3] + gameboard.grid[4] + gameboard.grid[5] === '000'){
         
-        gameboard.winner = player2.player2Name;
+        gameboard.winner = player2.name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[6] + gameboard.grid[7] + gameboard.grid[8] === '000'){
         
-        gameboard.winner = player2.player2Name;
+        gameboard.winner = player2.name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[0] + gameboard.grid[3] + gameboard.grid[6] === '000'){
         
-        gameboard.winner = player2.player2Name;
+        gameboard.winner = player2.name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[1] + gameboard.grid[4] + gameboard.grid[7] === '000'){
         
-        gameboard.winner = player2.player2Name;
+        gameboard.winner = player2.name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[2] + gameboard.grid[5] + gameboard.grid[8] === '000'){
         
-        gameboard.winner = player2.player2Name;
+        gameboard.winner = player2.name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[0] + gameboard.grid[4] + gameboard.grid[8] === '000'){
         
-        gameboard.winner = player2.player2Name;
+        gameboard.winner = player2.name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[2] + gameboard.grid[4] + gameboard.grid[6] === '000'){
         
-        gameboard.winner = player2.player2Name;
+        gameboard.winner = player2.name;
         return gameboard.gameWon = true;
     }else
         return false
