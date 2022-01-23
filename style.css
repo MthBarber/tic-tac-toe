@@ -46,9 +46,9 @@ input {
 #submitOne, #submitTwo {
     min-width: 4rem;
     min-height: 2rem;
-    background-color: #663399;
+    background-color: #FF3864;
     color: white;
-    border:none;
+    border:2px solid #000;
     border-radius: 8%;
 }
 
