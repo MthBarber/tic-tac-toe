@@ -33,15 +33,40 @@ const PlayerName = (name) => {
     return getName;
 }
 
+//Create method to type in player 1 name?
+const submitButtonOne = document.getElementById("submitOne");
+const nameInputOne = document.getElementById("nameOne");
+const nameOneField = document.getElementById("nameOneHere");
+
+submitButtonOne.addEventListener("click", (e) => {
+    nameOneField.innerHTML = nameInputOne.value;
+    player1.player1Name = nameInputOne.value;
+    nameInputOne.value = "";
+})
+
+
+
+//Create method to type in player 2 name?
+const submitButtonTwo = document.getElementById("submitTwo");
+const nameInputTwo = document.getElementById("nameTwo");
+const nameTwoField = document.getElementById("nameTwoHere");
+
+submitButtonTwo.addEventListener("click", (e) => {
+    nameTwoField.innerHTML = nameInputTwo.value;
+    player2.player2Name = nameInputTwo.value;
+    nameInputTwo.value = "";
+})
+
+
 //Get start button
 const startButton = document.getElementById('start');
 
 startButton.addEventListener("click", (e) =>{
     console.log("You pressed start!");
-    player1.player1Name = PlayerName();
+    /*player1.player1Name = PlayerName();
     player2.player2Name = PlayerName();
     setPlayerName(player1.player1Name);
-    setPlayerName(player2.player2Name);
+    setPlayerName(player2.player2Name);*/
     turnControl();
     
 })
@@ -50,27 +75,35 @@ startButton.addEventListener("click", (e) =>{
 const checkWinnerX = (e) => {
     if (gameboard.grid[0] + gameboard.grid[1] + gameboard.grid[2] === 'XXX'){
         console.log("WE HAVE A WINNER! x 012");
+        gameboard.winner = player1.player1Name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[3] + gameboard.grid[4] + gameboard.grid[5] === 'XXX'){
         console.log("WE HAVE A WINNER! x 345");
+        gameboard.winner = player1.player1Name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[6] + gameboard.grid[7] + gameboard.grid[8] === 'XXX'){
         console.log("WE HAVE A WINNER! x 678");
+        gameboard.winner = player1.player1Name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[0] + gameboard.grid[3] + gameboard.grid[6] === 'XXX'){
         console.log("WE HAVE A WINNER! x 036");
+        gameboard.winner = player1.player1Name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[1] + gameboard.grid[4] + gameboard.grid[7] === 'XXX'){
         console.log("WE HAVE A WINNER! x 147");
+        gameboard.winner = player1.player1Name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[2] + gameboard.grid[5] + gameboard.grid[8] === 'XXX'){
         console.log("WE HAVE A WINNER! x 258");
+        gameboard.winner = player1.player1Name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[0] + gameboard.grid[4] + gameboard.grid[8] === 'XXX'){
         console.log("WE HAVE A WINNER! x 048");
+        gameboard.winner = player1.player1Name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[2] + gameboard.grid[4] + gameboard.grid[6] === 'XXX'){
         console.log("we have a winner x 246");
+        gameboard.winner = player1.player1Name;
         return gameboard.gameWon = true;
     }else
         return false;
@@ -79,27 +112,35 @@ const checkWinnerX = (e) => {
 const checkWinner0 = (e) => {
     if (gameboard.grid[0] + gameboard.grid[1] + gameboard.grid[2] === '000'){
         console.log("WE HAVE A WINNER! 0 012");
+        gameboard.winner = player2.player2Name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[3] + gameboard.grid[4] + gameboard.grid[5] === '000'){
         console.log("WE HAVE A WINNER! 0 345");
+        gameboard.winner = player2.player2Name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[6] + gameboard.grid[7] + gameboard.grid[8] === '000'){
         console.log("WE HAVE A WINNER! 0 678");
+        gameboard.winner = player2.player2Name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[0] + gameboard.grid[3] + gameboard.grid[6] === '000'){
         console.log("WE HAVE A WINNER! 0 036");
+        gameboard.winner = player2.player2Name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[1] + gameboard.grid[4] + gameboard.grid[7] === '000'){
         console.log("WE HAVE A WINNER! 0 147");
+        gameboard.winner = player2.player2Name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[2] + gameboard.grid[5] + gameboard.grid[8] === '000'){
         console.log("WE HAVE A WINNER! 0 258");
+        gameboard.winner = player2.player2Name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[0] + gameboard.grid[4] + gameboard.grid[8] === '000'){
         console.log("WE HAVE A WINNER! 0 048");
+        gameboard.winner = player2.player2Name;
         return gameboard.gameWon = true;
     }else if (gameboard.grid[2] + gameboard.grid[4] + gameboard.grid[6] === '000'){
         console.log("we have a winner 0 246");
+        gameboard.winner = player2.player2Name;
         return gameboard.gameWon = true;
     }else
         return false
@@ -150,7 +191,7 @@ const turnControl = (e)=> {
 
 function gameOver(){
     if (gameboard.gameWon === true){
-        alert("Game Won");
+        alert("Game Won by " + gameboard.winner);
         resetGame();
         
     }else if (gameboard.gameWon === false){
@@ -163,9 +204,10 @@ function gameOver(){
 function resetGame(){
     gameboard.grid = [1,2,3,4,5,6,7,8,9];
     gameboard.turnNumber = 1;
+    gameboard.winner = "";
     gameboard.gameWon = false;
     for (let i = 0; i < gridSquares.length; i++){
-        gridSquares[i].innerHTML = "0";
+        gridSquares[i].innerHTML = "";
         
 
 

@@ -52,16 +52,16 @@ h1 {
     align-items: space-around;
     border: 5px solid rgb(0, 0, 0); 
     background-color: gray;   
-    min-height: 24%;
-    min-width: 35%;
+    min-height: 30rem;
+    min-width: 30rem;
 }
 
 .grid {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 33.33%;
-    min-width: 33.33%;
+    min-height: 10rem;
+    min-width: 10rem;
     background-color: gray;   
     font-size: 7rem;
    
